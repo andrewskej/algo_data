@@ -39,10 +39,19 @@ class Stack{
 }
 
 
+//stack is like a pile of stack ..meaning last in first out
+
 let stack = new Stack()
 
 stack.push(99)
 console.log(stack.first.val)
-
+stack.push(88)
+console.log(stack.first.val)
+stack.push(77)
+console.log(stack.first.val)
 stack.pop()
+console.log(stack.first.val)
+
 console.log(stack)
+
+
