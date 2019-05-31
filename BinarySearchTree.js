@@ -92,19 +92,77 @@ class BinarySearchTree{
         }
     }
 
+    BFS(){ //breadth first search
+        let q = [], result = []
+        if(!this.root) return undefined;
+        q.push(this.root)
+
+        while(q.length){
+            let out = q.shift()
+            result.push(out.val)
+            if(out.left){
+                q.push(out.left)
+            }
+            if(out.right){
+                q.push(out.right)
+            }
+        }
+        return result
+    }
+
+    DFS_PreOrder(){
+        let visited = []
+        function traverse(node){
+            visited.push(node.val)
+            if(node.left) traverse(node.left)
+            if(node.right) traverse(node.right)
+        }
+        traverse(this.root)
+        return visited
+    }
+
+    DFS_PostOrder(){
+        let visited = []
+        function traverse(node){
+            if(node.left) traverse(node.left)
+            if(node.right) traverse(node.right)
+            visited.push(node.val)
+        }
+        traverse(this.root)
+        return visited
+    }
+
+    DFS_InOrder(){
+        let visited = []
+        function traverse(node){
+            if(node.left) traverse(node.left)
+            visited.push(node.val)
+            if(node.right) traverse(node.right)
+        }
+        traverse(this.root)
+        return visited
+    }
 
 }
 
 
 let tree = new BinarySearchTree()
-tree.root = new Node(10)
+// tree.root = new Node(10)
 // tree.root.right = new Node(15)
 // tree.root.left = new Node(7)
 // tree.root.left.right = new Node(99)
+tree.insert(10)
+tree.insert(6)
+tree.insert(15)
+tree.insert(3)
+tree.insert(8)
+tree.insert(20)
 
-
-tree.insert(5)
-tree.insert(19)
-tree.insert(99)
 console.log(tree)
-console.log(tree.find(99))
+console.log(tree.find(20))
+
+
+console.log(tree.BFS())
+console.log(tree.DFS_PreOrder())
+console.log(tree.DFS_PostOrder())
+console.log(tree.DFS_InOrder())
