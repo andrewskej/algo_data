@@ -50,11 +50,11 @@ class Graph{
 
     //Iterative
     DFS_I(start){
-        let S = [start]
-        let result = []
-        let visited = {}
+        const S = [start]
+        const result = []
+        const visited = {}
         visited[start] = true
-        let currentV
+        let currentV;
         while(S.length){
             currentV = S.pop()
             result.push(currentV)
@@ -69,6 +69,28 @@ class Graph{
         return result
     }
 
+    BFS(start){
+        const queue = [start]
+        const result = []
+        const visited = {}
+        let currentVertex;
+        visited[start] = true
+        
+        while(queue.length){
+            console.log(queue)
+            currentVertex = queue.shift()
+            result.push(currentVertex)
+            console.log(result)            
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    visited[neighbor] = true;
+                    queue.push(neighbor) 
+                }
+            })
+        }
+        return result;
+        
+    }
 
 }
 
@@ -100,6 +122,7 @@ console.log(g2)
 
 console.log(g2.DFS_R("A"))
 console.log(g2.DFS_I("A"))
+console.log(g2.BFS("A"))
 
 //how to use 'delete' in Object
 // let xx = {a:'aaa', b:'xyz', c:'abc'}
