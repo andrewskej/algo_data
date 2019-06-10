@@ -1,10 +1,10 @@
 class Node{
     constructor(val){
-    this.val = val;
-    this.next = null
+      this.val = val;
+      this.next = null;
     }
 }
-  
+
   
 class SinglyLinkedList{
     constructor(){
@@ -159,7 +159,9 @@ class SinglyLinkedList{
   console.log(list.print())
   // console.log(list.get(3))
   // console.log(list.set(1, 'shit'))
-  // console.log(list.insert(2, 'new2'))
+  console.log(list.insert(2, 'new2'))
+  console.log(list.reverse())
+  // console.log(list.traverse())
   // console.log(list.remove(1))
   // console.log(list.head.val)
   // console.log(list.head.next.val)
