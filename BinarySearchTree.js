@@ -128,6 +128,7 @@ tree.insert(6)
 tree.insert(15)
 tree.insert(3)
 tree.insert(8)
+tree.insert(16)
 tree.insert(20)
 
 console.log(tree.root.val)

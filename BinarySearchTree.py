@@ -98,7 +98,7 @@ bst.insert(8)
 bst.insert(16)
 bst.insert(20)
 
-
+print('root:', bst.root.val)
 print('BFS:', bst.BFS())
 print('DFS_Preorder:', bst.DFS_PreOrder())
 print('DFS_Postorder:', bst.DFS_PostOrder())

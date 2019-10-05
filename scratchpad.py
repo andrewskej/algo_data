@@ -30,9 +30,9 @@ class Solution:
             return x
 
 #IDK if it works this way
-print(Solution.reverse(Solution,123))
-print(Solution.reverse(Solution,-123))
-print(Solution.reverse(Solution,120))
+# print(Solution.reverse(Solution,123))
+# print(Solution.reverse(Solution,-123))
+# print(Solution.reverse(Solution,120))
 
 
 
@@ -40,6 +40,6 @@ def majEl(nums):
     return sorted(nums)[len(nums)//2]
 
 
-print(majEl([2,3,3]))
+# print(majEl([2,3,3]))
 
 
