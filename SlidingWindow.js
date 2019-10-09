@@ -40,3 +40,4 @@ function slidingWindow(Sentence, Target){
 }
 
 console.log(slidingWindow(sentence, target2)) 
+
