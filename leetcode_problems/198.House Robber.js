@@ -21,12 +21,39 @@
  @return {number}
  */
 
- const rob = (nums) => {
+//  //this doesn't work... we need tempSum to compare... let's start over
+//  const rob = (nums) => {
+//     let total = 0
+//     let start
+//     let leftBox = [] 
+//     let rightBox = []
+//     const biggest = nums.length ? nums.reduce((acc,cur)=> {return acc>cur?acc:cur}) : 0
+//     start = nums.indexOf(biggest)
 
- }
+//     for(let i = start+2; i<nums.length; i+=2){
+//         rightBox.push(nums[i])
+//     }
+//     for(let i = start-2; i>=0; i-=2){
+//         leftBox.push(nums[i])
+//     }
+
+//     let fullBox = [...leftBox, biggest, ...rightBox]
+//     total =  fullBox.reduce((acc,cur)=>{return acc+cur})
+//     return total
+// }
 
 const nums1 = [1,2,3,1] // 4
 const nums2 = [2,7,9,3,1] //12
+const nums3 = [2,3,2] //4
+const noNum = []
+ 
+const rob = (nums) => {
 
- console.log(rob(nums1))
- console.log(rob(nums2))
+}
+
+console.log(rob(nums1))
+console.log(rob(nums2))
+console.log(rob(noNum))
+console.log(rob(nums3))
+
+ 
