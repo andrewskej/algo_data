@@ -107,16 +107,3 @@ function shortSubStrVer2(s,t){
 }
 
 console.log(shortSubStrVer2('bbaa','aba'))
-
-//cannot visit adjacent houses
-//get the max money 
-const houseRob = (houses) => {
-
-
-
-}
-
-const houses1 = [1,2,3,1]
-const houses2 = [2,7,9,3,1]
-console.log(houseRob(houses1))
-console.log(houseRob(houses2))
