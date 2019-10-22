@@ -45,15 +45,69 @@
 const nums1 = [1,2,3,1] // 4
 const nums2 = [2,7,9,3,1] //12
 const nums3 = [2,3,2] //4
+const nums4 = [2,1,1,2]//4
 const noNum = []
- 
-const rob = (nums) => {
 
+
+//Doesn't work as well - only option is not adjecent nums, not necessarily every other number...shit! :(
+// const rob = (nums) => {
+//     let tempSum1=0;
+//     let tempSum2=0;
+//     for(let i = 0; i<nums.length; i+=2){
+//         tempSum1 += nums[i]
+//     }
+
+//     for(let i = 1; i<nums.length; i+=2){
+//         tempSum2 += nums[i]
+//     }
+
+//     return Math.max(tempSum1, tempSum2)
+// }
+
+
+//Make this iterable and work ... 
+const rob = (nums) => {
+    let out = []
+    let leftOvers = []
+    let tempBig = 0;
+    
+    for(let i = 0; i<nums.length; i++){
+        tempBig = (nums[i] > tempBig) ? nums[i] : tempBig
+    }
+
+    console.log(tempBig)
+    out.push(nums[nums.indexOf(tempBig)-1])
+    out.push(nums[nums.indexOf(tempBig)])
+    out.push(nums[nums.indexOf(tempBig)+1])
+    console.log(out)
+
+    leftOvers = nums.filter(el => !out.includes(el))
+    console.log('leftOvers: ', leftOvers);
+
+    let temp2 = leftOvers.reduce((acc,cur)=> {return acc>cur?acc:cur})
+    console.log(temp2)
+
+    tempBig += temp2
+    console.log('tempBig: ', tempBig);
+
+    out.push(nums[nums.indexOf(temp2)])
+    console.log(out)
+
+    let leftOvers2 = nums.filter(el => !out.includes(el))
+    console.log('leftOvers2: ', leftOvers2);
+
+    if(leftOvers2.length){
+        tempBig += leftOvers2[0]
+    }
+
+    console.log(tempBig)
+    return tempBig;
 }
 
-console.log(rob(nums1))
+// console.log(rob(nums1))
 console.log(rob(nums2))
-console.log(rob(noNum))
-console.log(rob(nums3))
+// console.log(rob(nums3))
+// console.log(rob(nums4))
+// console.log(rob(noNum))
 
  
