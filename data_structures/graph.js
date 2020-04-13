@@ -17,7 +17,7 @@ class Graph{
 
     removeEdge(vertex1, vertex2){
         this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(el => el !== vertex2)
-        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(el => el!==vertex1)
+        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(el => el !== vertex1)
     }
 
     removeVertex(vertexName){
@@ -58,7 +58,6 @@ class Graph{
         while(S.length){
             currentV = S.pop()
             result.push(currentV)
-
             this.adjacencyList[currentV].forEach(neighbors => {
                 if(!visited[neighbors]){
                     visited[neighbors] = true;
@@ -77,10 +76,8 @@ class Graph{
         visited[start] = true
         
         while(queue.length){
-            console.log(queue)
             currentVertex = queue.shift()
             result.push(currentVertex)
-            console.log(result)            
             this.adjacencyList[currentVertex].forEach(neighbor => {
                 if(!visited[neighbor]){
                     visited[neighbor] = true;
@@ -106,19 +103,22 @@ class Graph{
 
 let g2 = new Graph()
 g2.addVertex("A")
+console.log(g2)
 g2.addVertex("B")
+console.log(g2)
 g2.addVertex("C")
 g2.addVertex("D")
 g2.addVertex("E")
 g2.addVertex("F")
 g2.addEdge("A","B")
+console.log(g2)
 g2.addEdge("B","D")
+console.log(g2)
 g2.addEdge("D","E")
 g2.addEdge("D","F")
 g2.addEdge("F", "E")
 g2.addEdge("E", "C")
 g2.addEdge("C", "A")
-console.log(g2)
 
 console.log(g2.DFS_R("A"))
 console.log(g2.DFS_I("A"))

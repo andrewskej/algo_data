@@ -299,3 +299,125 @@ var maxProfit = function(prices){
 
   let nums = [-10,-3,0,5,9]
   console.log(sortedArrayToBST(nums))
+
+
+  ////////Must Master: LinkedList, Tree, Graph...
+
+  class Node{
+      constructor(val){
+          this.val = val;
+          this.next = null;
+      }
+  }
+
+  class SLL{
+      constructor(){
+          this.head = null;
+          this.tail = null;
+          this.length = 0;
+      }
+
+        push(val){
+            let newnode = new Node(val)
+            if(!this.head){
+                this.head = newnode;
+                this.tail = newnode;
+            }else{
+                this.tail.next = newnode;
+                this.tail = newnode;
+            }
+                this.length += 1;
+            }
+
+        pop(){ //remove last node(tail)
+            if(!this.head) return undefined;
+            let current = this.head
+            let newTail = current;
+            while(current.next){
+              newTail = current;
+              current = current.next;
+            }
+              this.tail = newTail;
+              this.tail.next = null
+              this.length -= 1;
+            if(this.length === 0){
+              this.head = null
+              this.tail = null
+            }
+              return current;
+        }
+  }
+
+
+  let linkedL = new SLL()
+  console.log(linkedL)
+  linkedL.push(57)
+  linkedL.push(56)
+  linkedL.push(53)
+  linkedL.push(51)
+  linkedL.pop()
+  console.log(linkedL)
+
+  class Graph{
+    constructor(){
+        this.adjacencyList = {}
+    }
+
+    addVertex(vName){
+        if(!this.adjacencyList[vName]){
+            this.adjacencyList[vName] = []
+        }
+    }
+    
+    addEdge(v1, v2){
+        this.adjacencyList[v1].push(v2)
+        this.adjacencyList[v2].push(v1)
+    }
+
+    removeVertex(vName){
+        delete this.adjacencyList[vName]
+    }
+    
+    removeEdge(v1, v2){
+        this.adjacencyList[v1] = this.adjacencyList[v1].filter(el => el !== v2)
+        this.adjacencyList[v2] = this.adjacencyList[v2].filter(el => el !== v1)
+    }
+
+
+    DFS(start){
+        const S = [start]
+        const result = []
+        const visited = {}
+        visited[start] = true
+        let currentV;
+        while(S.length){
+            currentV = S.pop()
+            result.push(currentV)
+            this.adjacencyList[currentV].forEach(neighbors => {
+                if(!visited[neighbors]){
+                    visited[neighbors] = true;
+                    S.push(neighbors)
+                }
+            })
+        }
+        return result
+    }
+
+    BFS(start){
+
+    }
+    
+
+  }
+
+  const newG = new Graph()
+  newG.addVertex('a')
+  newG.addVertex('b')
+  newG.addVertex('c')
+  newG.addVertex('d')
+  newG.addEdge('a','b')
+  newG.addEdge('a','c')
+  newG.addEdge('c','b')
+//   newG.removeVertex('a')
+  console.log(newG.DFS('a'))
+  console.log(newG)
