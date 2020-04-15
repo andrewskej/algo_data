@@ -68,21 +68,19 @@ var findMaxLength2 = function(nums) {
     let map = new Map(); //initialize map to store if count 
     let count = 0;
     for(let i = 0; i < nums.length; i++) {
-        if(nums[i] === 0) {
-            count -= 1
-        } else {
-            count += 1
-        }
+        nums[i] === 0 ? count -=1 : count += 1  
+
         if(count === 0) //this is when reached the equal number of 0 and 1
     		maxLength = i+1; 
-        if(map.has(count)) {
+        if(map.has(count)) { //if it is not the first time you reach that count
             maxLength = Math.max(maxLength, i-map.get(count))
-        } else {
+        } else { //first time you reach that down or up, insert new val to map
             map.set(count, i);
         }
     }
     return maxLength;
 };
 
-
+const test = [0,0,1,0,0,1,0,0,1,1,1]
 console.log(findMaxLength2(nums3))
+console.log(findMaxLength(test))
