@@ -26,59 +26,41 @@
  * @return {number}
  */
 var numIslands = function(grid) {
-    const H = grid.length
-    const W = grid[0].length
+    const H = grid.length;
+    const W = H && grid[0].length;
     let count = 0;
-
-    for(let row = 0; row < H; row++){
-        for(let column = 0; column< W; column++){
-            if(grid[row][column] === '0') continue;
-            count++;
-            dfs(row,column)
+  
+    for (let r = 0; r < H; r++) {
+        for (let c = 0; c < W; c++) {
+            if (grid[r][c] === '0'){
+                console.log(`found 0 - no count up : [${r}][${c}]`)
+                continue; //continue means to skip this turn of loop.. -> no count up for '0'
+            } 
+            
+            count++;  //count up if there's new 1 found
+            console.log('found 1 - count up:', count)
+            dfs(r, c);
         }
     }
-
     return count;
-
     
-    function dfs(row,column){
-        if(row < 0 || column < 0 || row === H || column === W) return;
-        if(grid[row][column] === '0') return;
 
-        grid[row][column] = '0'
-        dfs(row-1, column)
-        dfs(row+1, column)
-        dfs(row, column-1)
-        dfs(row, column+1)
+    function dfs(r, c) {
+        if (r < 0 || c < 0 || r === H || c === W) return; //if out of the grid
+        if (grid[r][c] === '0') return; //if water
+        console.table(grid)
+        grid[r][c] = '0'; //if land, change it to 0 so next time it will return
+        //check left, right, up, down of current in recursive
+        dfs(r-1, c);  
+        dfs(r+1, c);
+        dfs(r, c-1);
+        dfs(r, c+1);
     }
 };
 
-let grid = [[],[],[],[]];
-    grid[0][0] = 1;
-    grid[0][1] = 1;
-    grid[0][2] = 1;
-    grid[0][3] = 1;
-    grid[0][4] = 0;
 
-    grid[1][0] = 1;
-    grid[1][1] = 1;
-    grid[1][2] = 0;
-    grid[1][3] = 1;
-    grid[1][4] = 0;
+let grid = [['1','1','0','0','0'],['1','1','0','0','0'],['0','0','1','0','0'],['0','0','0','1','1']];
 
-    grid[2][0] = 1;
-    grid[2][1] = 1;
-    grid[2][2] = 0;
-    grid[2][3] = 0;
-    grid[2][4] = 0;
-
-    grid[3][0] = 0;
-    grid[3][1] = 0;
-    grid[3][2] = 0;
-    grid[3][3] = 0;
-    grid[3][4] = 0;
-
-console.table(grid)
 
 
 console.log(numIslands(grid))
