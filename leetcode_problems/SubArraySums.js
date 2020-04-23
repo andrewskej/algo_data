@@ -53,3 +53,17 @@ var subarraySum = function(nums, k) {
 var nums = [1,1,1,2,3,1,2]
 var k = 3
 console.log(subarraySum(nums, k))
+
+var subarraySumBF = function(nums, k) {
+    let counter = 0;
+    for (let i=0;i<nums.length;i++) {
+        let base = 0;
+        for (let j=i;j<nums.length;j++) {
+            base+=nums[j];
+            if (base == k) counter++;
+        }
+    }
+    return counter;
+};
+
+console.log(subarraySumBF(nums,k))
