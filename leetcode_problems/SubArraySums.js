@@ -39,8 +39,9 @@ var subarraySum = function(nums, k) {
     
     for (let num of nums) {
         sum += num;
-        //what does sum-k mean???
-        if(map.has(sum-k)) count+= map.get(sum-k);
+        // what does sum-k mean???  
+        // sum-k means distance from current value and goal value.. 0 means euqal.
+        if(map.has(sum-k)) count+= map.get(sum-k);  //if map already has a record(of match), count up by that record...?
         if(map.has(sum)) map.set(sum, map.get(sum)+1);
         else map.set(sum,1)
     }
