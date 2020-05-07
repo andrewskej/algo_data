@@ -40,7 +40,7 @@ var isValid = function(s) {
             if(arr[arr.length - 1] === map[s[i]]){    //if the last stacked leftside is pair(symmetrical)
                 arr.pop();                            //that pair is cleared
             }else{ 
-                return false;                         //if this shows up once, good chance that its not valid...
+                return false;                         //if this shows up once, not paired / valid
             }
         }
     }
