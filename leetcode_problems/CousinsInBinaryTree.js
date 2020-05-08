@@ -19,27 +19,25 @@
  * @return {boolean}
  */
 var isCousins = function(root, x, y) {
-   // cousin is when you have same depth, different parents
-    // x and y should have same depth and different parents
-
-    //helper function to get depth and parents of x and y
-    function getDepthAndParent(currentnode, given, depth, parent){
-        if(!currentnode) return null;
-
-        if(currentnode.val === given){
-            return {depth, parent}
+    function getDepthAndParent(node, given, depth=0, parent){
+        if(!node) return null;
+        if(node.val === given){  //if found the given value
+            return {depth, parent}  //return its depth and its parent
         }
-        
-        let goLeft = getDepthAndParent(currentnode.left, given, depth+1, currentnode);
-        let goRight = getDepthAndParent(currentnode.right, given, depth+1, currentnode);
-        
-        //one or both of them will be null at last
-        return goLeft || goRight;
+        let left = getDepthAndParent(node.left, given, depth+1, node); //recursive to get left
+        let right = getDepthAndParent(node.right, given, depth+1, node); //recursive to get right
+
+        return left || right;
     }
-    
-    let { xDepth, xParent} = getDepthAndParent(root, x)
-    let { yDepth, yParent} = getDepthAndParent(root, y)
-    
-    return (xParent !== yParent  && xDepth == yDepth)
+
+   let {depth: xDepth, parent: xParent} = getDepthAndParent(root, x)
+   let {depth: yDepth, parent: yParent} = getDepthAndParent(root, y)
+
+    //same depth && different parent means they are cousins.
+    return xDepth == yDepth && xParent !== yParent;
 };
 
+const root = [1,2,3,4]
+const x = 3;
+const y = 4;
+console.log(isCousins(root,x,y))
