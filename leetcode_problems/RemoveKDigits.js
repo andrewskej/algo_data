@@ -39,11 +39,9 @@ var removeKdigits = function(num, k) {
 
     }
     
-    while (k-- > 0) stack.pop(); //?
-    while (stack[0] === '0') stack.shift();
-    return stack.length > 0 ? stack.join('') : '0';
+    return stack.length > 0 ? parseInt(stack.join('')) : '0';
 };
 
-// console.log(removeKdigits(num="10200", k=1))
-// console.log(removeKdigits(num="10", k=2))
+console.log(removeKdigits(num="10200", k=1))
+console.log(removeKdigits(num="10", k=2))
 console.log(removeKdigits(num="1432219", k=3))
