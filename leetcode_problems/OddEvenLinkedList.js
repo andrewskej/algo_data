@@ -27,16 +27,16 @@
  */
 var oddEvenList = function(head) {
     if (!head) return head;
-    var odd = head;
-    var even = head.next;
+    var odd_current = head;
+    var even_head = head.next;
     
-    while(odd.next && odd.next.next){
-        var temp = odd.next;
-        odd.next = odd.next.next;
+    while(odd_current.next && odd_current.next.next){
+        var even_current = odd_current.next;
+        odd_current.next = odd_current.next.next;
 
-        odd = odd.next;
-        temp.next = odd.next; 
+        odd_current = odd_current.next;
+        even_current.next = odd_current.next; 
     }
-    odd.next = even;
+    odd.next = even_head;
     return head;
 };
