@@ -52,8 +52,8 @@ var checkInclusion = function(s1, s2) {
 };  
 
 
-let s1 = "ab"; let s2 = "eidbaooo";
+let s1 = "ab"; let s2 = "eidbaabooo";
 console.log(checkInclusion(s1, s2));
 
-let s3 = "ab"; let s4 = "eidbxaoo";
-console.log(checkInclusion(s3, s4));
+// let s3 = "ab"; let s4 = "eidbxaoo";
+// console.log(checkInclusion(s3, s4));
