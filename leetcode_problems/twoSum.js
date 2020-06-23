@@ -8,11 +8,10 @@ var twoSum = function(nums, target) {
 
     for(let i = 0; i < nums.length; i++){
         let complement = target - nums[i];
-        console.log(complement)
-        if(complement in map){
-            return [map[complement], i]
+        if(complement in map){ //should be able to explain these lines
+            return [map[complement], i] //should be able to explain these lines
         }
-        map[nums[i]] = i;
+        map[nums[i]] = i; //should be able to explain these lines
     }
     
 };
