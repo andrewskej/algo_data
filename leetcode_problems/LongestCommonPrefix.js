@@ -24,8 +24,8 @@ var longestCommonPrefix = function(strs) {
 
             console.log(other[i], first[i])
 
-            if(other[i] !== first[i]){
-                return other.slice(0,i)
+            if(other[i] !== first[i]){ //if they begin to unmatch
+                return other.slice(0,i)  //cut the unmatching point and return the matching part.
             }
         }
     }
