@@ -19,7 +19,7 @@ var longestCommonPrefix = function(strs) {
     //for loop on the first word to get each char
     for(let i = 0; i < first.length; i++){
         //for loop on the list
-        for(let j = 0; j < strs.length; j++){
+        for(let j = 1; j < strs.length; j++){
             const other = strs[j] //rest of the words
 
             console.log(other[i], first[i])
@@ -33,6 +33,7 @@ var longestCommonPrefix = function(strs) {
     return first;
 };
 
-// console.log(longestCommonPrefix(["flower","flow","flight"]))
+console.log(longestCommonPrefix(["flower","flow","flight"]))
 console.log(longestCommonPrefix(["car","zdwcar","car"]))
-// console.log(longestCommonPrefix(["aa", "aa"]))
+console.log(longestCommonPrefix(["aa", "aa"]))
+console.log(longestCommonPrefix([]))
