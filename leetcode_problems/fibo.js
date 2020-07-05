@@ -14,6 +14,27 @@ function fibo_iterative(num){
 }
 
 
-console.log(fibo_iterative(8))
-console.log(fibo_recursive(8))
+function fibo_memo(){ //O(n), when other fibo is O(n^2)
+    let cache = {};
+    //closure by returning function, 
+    //so it can access to let cache 
+    //without resetting it
+    return function fib(n){ 
+        if(n in cache){
+            return cache[n]
+        }else{
+            if(n < 2){
+                return n;
+            }else{
+                cache[n] = fib(n-1) + fib(n-2);
+                // console.log(cache)
+                return cache[n]
+            }
+        }
+    }
+}
 
+// console.log(fibo_iterative(8))
+// console.log(fibo_recursive(8))
+const fibo = fibo_memo();
+console.log(fibo(12));
