@@ -12,23 +12,24 @@
 //     }
 // }
 
-var moveZero = (nums) => {
-    var pos = 0
-    for(let i =0; i<nums.length; i++){
-        if( nums[i] !== 0){
-            nums[pos] =  nums[i];
+var moveZero = (nums) => { 
+    var pos = 0  //this counts zeros + 1
+    for(let i = 0; i < nums.length; i++){
+        if( nums[i] !== 0){  //if not zero, 
+            nums[pos] =  nums[i];   
             pos++;
         }
         console.log(nums)
     }
 
-    for(let i = pos; i<nums.length; i++){
+    //pos is the position where second loop starts from -> meaning that after pos, they are extra nums to be replaced by 0
+    for(let i = pos; i < nums.length; i++){
         nums[i] = 0
     }
     console.log(nums)
 }
 
 
-// const input = [0,1,0,3,12]
+// const input = [4,1,2,3,12]
 const input = [0,1,0,3,12]
-console.log(moveZero(input))
+moveZero(input)
