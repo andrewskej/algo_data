@@ -38,8 +38,8 @@ function shortSubStr(Sentence, Target){
     return Sentence.slice(result[0], result[1]+1)
 }
 
-// console.log(shortSubStr(sentence, target2)) 
-// console.log(shortSubStr('aa','aa'))
+console.log(shortSubStr(sentence, target2)) 
+console.log(shortSubStr('aa','aa'))
 console.log(shortSubStr('bbaa','aba'))
 
 
@@ -61,7 +61,7 @@ function shortSubStrVer2(s,t){
     console.log(dict)
     // count keeps track of number of characters to be matched
     let count = Object.keys(dict).length;
-    
+
     // Expanding the window on the right
     for (let end = 0; end < s.length; end++) {
         // Update the characters in the current window
@@ -106,4 +106,4 @@ function shortSubStrVer2(s,t){
     return minWindow;
 }
 
-console.log(shortSubStrVer2('bbaa','aba'))
+console.log(shortSubStrVer2('ADOBECODEBANC','ABC'))
