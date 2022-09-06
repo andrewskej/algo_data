@@ -19,6 +19,7 @@ function minimumBracketToRemove(givenString){
         }
     }
 
+
     while(stack.length){
         const currIdx = stack.pop()
         givenStringArr[currIdx] = ''
