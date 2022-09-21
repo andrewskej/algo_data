@@ -21,6 +21,7 @@ Udemy interview Questions:
 16. Level order of binary tree
 17. Right side view of Tree
 18. Number of nodes in Complete Tree
+19. Validate Binary search Tree
 
 
 
