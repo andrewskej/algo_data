@@ -22,6 +22,7 @@ Udemy interview Questions:
 17. Right side view of Tree
 18. Number of nodes in Complete Tree
 19. Validate Binary search Tree
+20. Number of islands
 
 
 
