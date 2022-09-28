@@ -6,23 +6,25 @@ Udemy interview Questions:
 4. Typed out Strings (Easy)
 5. Longest substring (Medium)
 
-6. Valid Palindrome & almost Palindrom
+6. Valid Palindrome & almost Palindrome
 7. M, N reversals ...need review
 8. merge multi-level DDL
-9.  Detecting Cycle & Floyd's Tortoise and Hare
+9. Detecting Cycle & Floyd's Tortoise and Hare
 10. Valid parenthesis
 
 11. Minimum brackets to Remove
 12. Implement Queue by Stack
 13. k-th largest element
 14. Start and End of Target
-15. Maximum depth of binary tree
 
+15. Maximum depth of binary tree
 16. Level order of binary tree
 17. Right side view of Tree
 18. Number of nodes in Complete Tree
 19. Validate Binary search Tree
+
 20. Number of islands
+21. Rotting Oranges
 
 
 
