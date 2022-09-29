@@ -33,7 +33,7 @@ const rottingOranges = (matrix) => {
     for(let col = 0; col < matrix[0].length; col++){
 
       if(matrix[row][col] === isRotten){
-        queue.push([row, col]) ;
+        queue.push([row, col]);
       }
 
       if(matrix[row][col] === isFresh){
@@ -52,6 +52,7 @@ const rottingOranges = (matrix) => {
     }
 
     const currentOrange = queue.shift();
+    console.log(currentOrange)
     currentQSize--;
     const row = currentOrange[0];
     const col = currentOrange[1];
