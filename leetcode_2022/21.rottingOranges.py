@@ -32,9 +32,11 @@ def rottingOranges(matrix):
     for row in range(len(matrix)):
         for col in range(len(matrix[0])):
             if(matrix[row][col] == ISROTTEN):
+                #find coordinates of rotten oranges
                 queue.append([row, col])
             
             if(matrix[row][col] == ISFRESH):
+                #count fresh oranges
                 freshOrange += 1
     
     minutes = 0
@@ -47,6 +49,7 @@ def rottingOranges(matrix):
             
         currentOrange = queue.pop(0)
         currentQSize -= 1
+        
         row = currentOrange[0]
         col = currentOrange[1]
 
@@ -66,7 +69,6 @@ def rottingOranges(matrix):
     if freshOrange != 0:
         return -1
     
-   
     return minutes   
     
     
