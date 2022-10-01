@@ -5,11 +5,11 @@ const m1 = [
   [0,         -1,       Infinity, Infinity]
 ]
 
-const m2 = [
-  [Infinity,  -1,       0,        Infinity],
-  [Infinity,  Infinity, Infinity,       -1],
-  [Infinity,  -1,       Infinity,       -1],
-  [0,         -1,       Infinity, Infinity]
+const m2 = [  //for more intuitive understanding
+  [EMPTY,  WALL,  GATE,  EMPTY],
+  [EMPTY,  EMPTY, EMPTY,  WALL],
+  [EMPTY,  WALL,  EMPTY,  WALL],
+  [GATE,   WALL,  EMPTY, EMPTY]
 ]
 
 console.log(m1)
@@ -26,25 +26,23 @@ const directions = [
   [0,-1]
 ]
 const wallsAndGates = (matrix) => {
-
   for(let row = 0; row < matrix.length; row++){
-    for(let col = 0; col < matrix[0].length; col++){
-      if(matrix[row][col] === GATE){
-        dfs(matrix, row, col, 0);
+    for(let col = 0; col < matrix[0].length; col++){  //while you traverse one by one,
+      if(matrix[row][col] === GATE){    //if you encounter a Gate,
+        dfs(matrix, row, col, 0);   //run dfs, given currentStep = 0
       }
     }
   }
-  return matrix
+  return matrix  //return the modified matrix
 }
 
 
 const dfs = (matrix, row, col, currentStep) => {
-  if(row < 0 || col < 0 || 
-    row >= matrix.length || col >= matrix[0].length || 
-    currentStep > matrix[row][col]){
-    return;
+  if(row < 0 || col < 0 || row >= matrix.length || col >= matrix[0].length ||           //if out of bound
+    currentStep > matrix[row][col]){  //or current step is bigger than current block (this part....hm)
+    return;                           //just return
   }
-  matrix[row][col] = currentStep;
+  matrix[row][col] = currentStep;   //otherwise, change current block to currentStep value
 
   for(let i = 0; i<directions.length; i++){
     const currentDir = directions[i]
