@@ -26,6 +26,7 @@ Udemy interview Questions:
 20. Number of islands
 21. Rotting Oranges
 22. Walls and Gates
+23. Time to inform all employees
 
 
 
