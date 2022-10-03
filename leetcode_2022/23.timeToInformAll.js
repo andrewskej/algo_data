@@ -2,38 +2,15 @@
 // headID = 4
 const managers   = [2,2,4,6,-1,4,4,5]
 const informTime = [0,0,4,0,7,3,6,0]
-
-const adjacencyList = [
-  //index 0 and its children nodes 
-  [],
-  //1
-  [],
-  //2
-  [0,1],
-  //3
-  [],
-  //4
-  [2,5,6],
-  //5
-  [7],
-  //6
-  [3],
-  //7
-  [],
-  //8
-  []
-]
+const isHEAD = -1
 
 const timeToInform = (n, headId, managers, informTime) => {
   const adjList = managers.map(() => []);
-  console.log('m:', managers)
-  console.log('adj:', adjList)
+
   for(let e = 0; e < n; e++){
     const manager = managers[e];
+    if(manager === isHEAD) continue; 
 
-    if(manager === -1){
-      continue;
-    }
     adjList[manager].push(e);
   }
 
@@ -57,7 +34,7 @@ const dfs = (currentId, adjList, informTime) => {
 }
 
 
-console.log(timeToInform(8, 4, managers, informTime));
+console.log(timeToInform(managers.length, 4, managers, informTime));
 
 //time: O(n)
 //space: O(n)
