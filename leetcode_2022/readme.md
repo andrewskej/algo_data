@@ -27,6 +27,7 @@ Udemy interview Questions:
 21. Rotting Oranges
 22. Walls and Gates
 23. Time to inform all employees
+24. Course scheduler
 
 
 

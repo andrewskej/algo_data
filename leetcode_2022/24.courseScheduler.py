@@ -1,0 +1,6 @@
+def courseScheduler():
+    
+    
+    
+    
+print(courseScheduler())
