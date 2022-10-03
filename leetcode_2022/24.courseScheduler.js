@@ -54,6 +54,8 @@ const courseScheduler_BFS = (n, graph) => {
 
 //topological sort
 //use inDegree array
+//Time: O(P + n^2)
+//space: O(n^2)
 const courseScheduler_optimal = (n, graph) => {
   const inDegree = new Array(n).fill(0)
   const adjList = inDegree.map(() => [])
