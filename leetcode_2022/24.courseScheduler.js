@@ -1,5 +1,6 @@
 //There are total of n courses to take, labeled from 0 to n-1
-//some courses have prerequisite courses. This is expressed as a pair i.e. [1,0]
+//some courses have prerequisite courses. This is expressed as a pair 
+//i.e. [1,0]
 //which indicates you must take course 0, before taking course 1.
 //given the total number of courses and an array of prerequisite pairs, 
 //return if it is possible to finish all courses
@@ -56,12 +57,16 @@ const courseScheduler_BFS = (n, graph) => {
 //use inDegree array
 //Time: O(P + n^2)
 //space: O(n^2)
-const courseScheduler_optimal = (n, graph) => {
-  const inDegree = new Array(n).fill(0)
+//https://velog.io/@kimdukbae/%EC%9C%84%EC%83%81-%EC%A0%95%EB%A0%AC-Topological-Sorting
+const courseScheduler_optimal = (numberOfCourses, graph) => {
+  const inDegree = new Array(numberOfCourses).fill(0)
   const adjList = inDegree.map(() => [])
 
-  for(let i = 0; i < prerequisites.length; i++){
-    const pair = prerequisites[i];
+  //for pair[0], you need to take pair[1]
+  for(let i = 0; i < graph.length; i++){
+    const pair = graph[i];
+    //pair[0] = target course
+    //pair[1] = prerequisite course
     inDegree[pair[0]]++;
     adjList[pair[1]].push(pair[0]);
   }
@@ -87,9 +92,9 @@ const courseScheduler_optimal = (n, graph) => {
       }
     }
   }
-  return count === n;
+  return count === numberOfCourses;
 }
 
 
-console.log(courseScheduler_BFS(6, prerequisites))
-console.log(courseScheduler_optimal(6, prerequisites))
+console.log(courseScheduler_BFS(courses.length, prerequisites))
+console.log(courseScheduler_optimal(courses.length, prerequisites))
