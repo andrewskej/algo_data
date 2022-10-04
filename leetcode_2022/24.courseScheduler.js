@@ -5,6 +5,9 @@
 //given the total number of courses and an array of prerequisite pairs, 
 //return if it is possible to finish all courses
 
+// -> meaning that I should find if it has cycles or not 
+// use topoligical sort will determine if it is DAG(true) or not (false)
+
 
 const courses = [0,1,2,3,4,5]
 const prerequisites = [
@@ -62,7 +65,6 @@ const courseScheduler_optimal = (numberOfCourses, graph) => {
   const inDegree = new Array(numberOfCourses).fill(0)
   const adjList = inDegree.map(() => [])
 
-  //for pair[0], you need to take pair[1]
   for(let i = 0; i < graph.length; i++){
     const pair = graph[i];
     //pair[0] = target course
