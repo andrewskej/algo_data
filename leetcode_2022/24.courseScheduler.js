@@ -98,5 +98,43 @@ const courseScheduler_optimal = (numberOfCourses, graph) => {
 }
 
 
+const courseScheduler_udemy = (numCourses, prerequisites) => {
+  const order = [];
+  const queue = [];
+  const graph = new Map();
+  const indegree = new Array(numCourses).fill(0);
+
+  for (const pair of prerequisites) {
+    // build graph map
+    const [target, required] = pair
+
+    if (graph.has(required)) {
+      graph.get(required).push(target);
+    } else {
+      graph.set(required, [target]);
+    }
+    // build indegree array
+    indegree[target]++;
+  }
+
+  for (let i = 0; i < indegree.length; i++) {
+    if (indegree[i] === 0) queue.push(i);
+  }
+
+  while (queue.length) {
+    const v = queue.shift();
+    if (graph.has(v)) {
+      for (const e of graph.get(v)) {
+        indegree[e]--;
+        if (indegree[e] === 0) queue.push(e);
+      }
+    }
+    order.push(v);
+  }
+
+  return numCourses === order.length;
+}
+
 console.log(courseScheduler_BFS(courses.length, prerequisites))
 console.log(courseScheduler_optimal(courses.length, prerequisites))
+console.log(courseScheduler_udemy(courses.length, prerequisites))

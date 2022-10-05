@@ -28,6 +28,9 @@ Udemy interview Questions:
 22. Walls and Gates
 23. Time to inform all employees
 24. Course scheduler
+25. Network time delay
+
+
 
 
 
