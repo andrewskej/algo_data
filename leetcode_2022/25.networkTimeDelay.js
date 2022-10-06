@@ -92,6 +92,9 @@ class PriorityQueue {
 //send a signal from node k, return how long it takes for all nodes to receive the signal, 
 //Return -1 if it's impossible.
 
+//Time: (E * logN + n * logN) -> (E * logN) <- need review
+//Space: O(E + N)
+
 const n = 5
 const k = 1
 const times = [
@@ -134,4 +137,32 @@ const networkTimeDelays_Dijkstra = (times, n, k) => {
 }
 
 
+//for negative weights... use Dynamic programming approach, with memoization, via Bellman Ford Algorithm
+//Time: O(N * E)
+//Space: O(N)
+const networkTimeDelays_BellmanFord = (times, n ,k) => {
+  const distances = new Array(n).fill(Infinity);
+  distances[k-1] = 0;
+  
+  for(let i = 0; i < n-1; i++){
+    let count = 0;
+    for(let j = 0; j < times.length; j++){
+      const source = times[j][0];
+      const target = times[j][1];
+      const weight = times[j][2];
+
+      if(distances[source-1] + weight < distances[target-1]){
+        distances[target-1] = distances[source-1] + weight
+        count++;
+      }
+    }
+
+    if(count === 0) break;
+  }
+
+  const ans = Math.max(...distances);
+  return ans === Infinity ? -1 : ans;
+}
+
 console.log(networkTimeDelays_Dijkstra(times, n ,k))
+console.log(networkTimeDelays_BellmanFord(times, n ,k))

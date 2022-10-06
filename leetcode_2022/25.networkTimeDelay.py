@@ -1,4 +1,5 @@
 from collections import defaultdict
+from ctypes.wintypes import tagRECT
 import heapq
 
 
@@ -41,6 +42,28 @@ class Solution:
         if max_value == float('inf'):
             return -1
         return max_value
+    
+    def bellmanFord(self, times, n, k):
+        distances = [float('inf') for k in range(0,n)]
+        distances[k-1] = 0
+        
+        for i in range(0, n-1):
+            count = 0
+            for j in range(0, len(times)):
+                source = times[j][0]
+                target = times[j][1]
+                weight = times[j][2]
+                
+                if distances[source-1] + weight < distances[target-1]:
+                    distances[target-1] = distances[source-1] + weight
+                    count+=1
+                
+            if count == 0:
+                break
+        
+        ans = max(distances)
+        return ans if ans != float('inf') else -1
+    
  
 
 
@@ -50,3 +73,4 @@ k = 1
 nodes = [1, 2, 3, 4, 5]
 times = [[1, 2, 9], [1, 4, 2], [2, 5, 1], [4, 2, 4], [4, 5, 6], [3, 2, 3], [5, 3, 7], [3, 1, 5]]
 print(sol.networkDelayTime(times, n, k))
+print(sol.bellmanFord(times, n, k))
