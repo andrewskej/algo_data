@@ -1,19 +1,18 @@
 cost = [20,15,30,5]
 
 def minCostClimbingStairs (cost):
-    n = len(cost)
-    dp = {}
-    return min(minCost(n-1, cost, dp), minCost(n-2, cost, dp))
-
-
-def minCost (i, cost, dp):
-    if i < 0:
-        return 0
-    if i == 0 or i == 1:
-        return cost[i]
     
-    dp[i] = cost[i] + min(minCost(i-1, cost, dp), minCost(i-2, cost, dp))
-    return dp[i]
+    def find_cost (i, memo = {}):
+        if i in memo:
+            return memo[i]
+        if i <= 1:
+            return cost[i]
+        memo[i] = cost[i] + min(find_cost(i - 1, memo), find_cost(i - 2, memo))
+        return memo[i]
+    
+    length = len(cost)
+    return min(find_cost(length - 1), find_cost(length - 2))
+
     
 print(minCostClimbingStairs(cost))
 
