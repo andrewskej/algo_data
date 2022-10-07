@@ -15,14 +15,16 @@ const minCostClimbingStairs = (cost) => {
 const minCostClimbingStairs2 = (cost) => {
   const n = cost.length;
   const dp = [];
-  for(let i = 0; i < n; i++){
-    if(i < 2){
-      dp[i] = cost[i];
-    } else {
-      dp[i] = cost[i] + Math.min(dp[i-1], dp[i-2])
-    }
+
+  let dpOne = cost[0]
+  let dpTwo = cost[1]
+
+  for(let i = 2; i < n; i++){
+    const current = cost[i] + Math.min(dpOne, dpTwo);
+    dpOne = dpTwo;
+    dpTwo = current;
   }
-  return Math.min(dp[n-1], dp[n-2]);
+  return Math.min(dpOne, dpTwo);
 }
 
 console.log(minCostClimbingStairs2(cost))
