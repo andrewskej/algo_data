@@ -14,8 +14,6 @@ const minCostClimbingStairs = (cost) => {
 
 const minCostClimbingStairs2 = (cost) => {
   const n = cost.length;
-  const dp = [];
-
   let dpOne = cost[0]
   let dpTwo = cost[1]
 
