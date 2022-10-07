@@ -1,0 +1,5 @@
+def minimumCost ():
+    
+    
+    
+print(minimumCost())
