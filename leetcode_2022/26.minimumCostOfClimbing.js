@@ -12,6 +12,18 @@ const minCostClimbingStairs = (cost) => {
   return Math.min(minCost(n-1, cost, dp), minCost(n-2, cost, dp))
 }
 
+const minCost = (i, cost, dp) => {
+  if (i < 0 )return 0;
+  if (i === 0 || i === 1) return cost[i];
+  if (dp[i] != undefined) return dp[i];
+  
+  dp[i] = cost[i] + Math.min(minCost(i-1, cost, dp), minCost(i-2, cost, dp))
+  return dp[i]
+}
+
+console.log(minCostClimbingStairs(cost))
+
+
 const minCostClimbingStairs2 = (cost) => {
   const n = cost.length;
   let dpOne = cost[0]
@@ -26,14 +38,3 @@ const minCostClimbingStairs2 = (cost) => {
 }
 
 console.log(minCostClimbingStairs2(cost))
-
-const minCost = (i, cost, dp) => {
-  if (i < 0 )return 0;
-  if (i === 0 || i === 1) return cost[i];
-  if (dp[i] != undefined) return dp[i];
-  
-  dp[i] = cost[i] + Math.min(minCost(i-1, cost, dp), minCost(i-2, cost, dp))
-  return dp[i]
-}
-
-console.log(minCostClimbingStairs(cost))
