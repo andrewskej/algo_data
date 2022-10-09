@@ -31,6 +31,7 @@ Udemy interview Questions:
 25. Network time delay
 
 26.Minimum Cost of climbing stairs
+27.Knight Probability in Chessboard
 
 
 

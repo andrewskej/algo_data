@@ -17,11 +17,10 @@ def minCostClimbingStairs (cost):
 print(minCostClimbingStairs(cost))
 
 def minCostClimbingStairs2 (cost):
-    n = len(cost)
     dpOne = cost[0]
     dpTwo = cost[1]
     
-    for i in range(2, n):
+    for i in range(2, len(cost)):
         current = cost[i] + min(dpOne, dpTwo)
         dpOne = dpTwo
         dpTwo = current
