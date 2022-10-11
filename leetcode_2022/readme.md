@@ -34,7 +34,7 @@ Udemy interview Questions:
 27.Knight Probability in Chessboard
 
 28.sudoku
-
+29.monarchy
 
 
 
