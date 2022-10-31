@@ -5,18 +5,17 @@ Udemy interview Questions:
 3. Rain water (Hard)  ...need review
 4. Typed out Strings (Easy)
 5. Longest substring (Medium)
-
 6. Valid Palindrome & almost Palindrome
+
 7. M, N reversals ...need review
 8. merge multi-level DDL
 9. Detecting Cycle & Floyd's Tortoise and Hare
 10. Valid parenthesis
-
 11. Minimum brackets to Remove
 12. Implement Queue by Stack
 13. k-th largest element
-14. Start and End of Target
 
+14. Start and End of Target
 15. Maximum depth of binary tree
 16. Level order of binary tree
 17. Right side view of Tree
@@ -32,7 +31,6 @@ Udemy interview Questions:
 
 26.Minimum Cost of climbing stairs
 27.Knight Probability in Chessboard
-
 28.sudoku
 29.monarchy
 30.prefix tries
